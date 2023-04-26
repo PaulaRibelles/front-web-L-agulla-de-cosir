@@ -1,16 +1,117 @@
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { InputText } from '../../common/InputText/InputText';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logMe } from '../../services/apiCalls';
 
 
 export const Login = () => {
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const credentialRdx = useSelector(userData);
+
+    //LOG OUT
+
+    const logmeOut = () => {
+        dispatch (userout({credentials : {}, token : ""}))
+        return navigate ("/")
+    }
+
     //HOOKS
+
+        //Error Validation
+
+        const [credenciales, setCredenciales] = useState({
+            email: "",
+            password: "",
+        });
+        
+        const [credencialesError, setCredencialesError] = useState({
+            emailError: "",
+            passwordError: "",
+        });
+        
+        const [credencialesValid, setCredencialesValid] = useState({
+            emailValid: false,
+            passwordValid: false,
+        });
 
         //Validation
 
     const [welcome, setWelcome] = useState("");
+    const [loginAct, setLoginAct] = useState(false);
 
+    //INPUT HANDLER
+
+    const inputHandler = (e) => {
+        setCredenciales((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+    //USE EFFECT
+
+    useEffect(() =>{
+        for(let error in credencialesError){
+            if(credencialesError[error] !==""){
+                setLoginAct(false);
+            return;
+            }
+        }
+        for(let vacio in credenciales){
+            if(credenciales[vacio] === ""){
+                setLoginAct(false);
+            return;
+            }
+        }
+        for(let validated in credencialesValid){
+            if(credencialesValid[validated] === false){
+                setLoginAct(false);
+            return;
+            }
+        }
+        setLoginAct(true);
+    });
+
+    //ERROR CHECKING FUNCTION
+
+    const checkError = (e) => {
+        let error = "";
+        let checked = checkInputs(e.target.name, e.target.value, e.target.required);
+        error = checked.message;
+        setCredencialesValid((prevState) => ({
+            ...prevState,
+            [e.target.name + "Vali"]: checked.checkInputs,
+        }));
+        setCredencialesError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: error,
+        }));
+    };
+
+    //CREDENTIALS
+
+    const logmeIn = () => {
+        logMe(credenciales)
+            .then(respuesta =>{
+    
+            let decodificado = decodeToken(respuesta.data.token) 
+            let datosBack = {
+                token: respuesta.data,
+                user: decodificado,
+            };
+            dispatch(login({ credentials: datosBack}));
+    
+                setWelcome(`Bienvenido/a ${decodificado.email} a L'agulla de cosir`);
+                setTimeout(() => {
+                    navigate("/");
+            }, 3000);
+        })
+        .catch((error) => console.log(error));
+    };
 
     //RENDER
 
@@ -31,6 +132,8 @@ export const Login = () => {
                                 name={"email"}
                                 placeholder={"email@example.com"}
                                 required={true}
+                                changeFunction={(e) => inputHandler(e)}
+                                blurFunction={(e) => checkError(e)}
                             />
                             <InputText
                                 className={"inputDesign"}
@@ -38,6 +141,8 @@ export const Login = () => {
                                 name={"password"}
                                 placeholder={"password"}
                                 required={true}
+                                changeFunction={(e) => inputHandler(e)}
+                                blurFunction={(e) => checkError(e)}
                             />
                         </div>
                     )
