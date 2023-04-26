@@ -12,7 +12,7 @@ export const Register = () => {
 
         //Error Validation
 
-        const [credenciales, setCredeciales] = useState({
+        const [credenciales, setCredenciales] = useState({
             dni: "",
             name: "",
             surname: "",
