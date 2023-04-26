@@ -3,17 +3,16 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { InputText } from '../../common/InputText/InputText';
 
 
-
-
 export const Login = () => {
 
-//Hook que activa el botón de envío de datos
+    //HOOKS
 
-const [welcome, setWelcome] = useState("");
+        //Validation
+
+    const [welcome, setWelcome] = useState("");
 
 
-
-//Render
+    //RENDER
 
     return (
     <Container fluid>
