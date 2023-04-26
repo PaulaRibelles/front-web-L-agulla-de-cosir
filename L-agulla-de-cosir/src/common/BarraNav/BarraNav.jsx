@@ -17,9 +17,8 @@ export const BarraNav = () => {
                 </Nav>
                 <Nav>
                     <Nav.Link as={Link} to={'/login'}>Login</Nav.Link>
-                </Nav>
-                <Nav>
                     <Nav.Link as={Link} to={'/register'}>Registro</Nav.Link>
+                    <Nav.Link as={Link} to={'/profile'}>Profile</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Container>
