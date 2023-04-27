@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
 import { InputText } from '../../common/InputText/InputText';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logMe } from '../../services/apiCalls';
-import { login, userData, userout } from '../Slices/userSlice';
 import { checkInputs } from '../../Helpers/useful';
 import { decodeToken } from 'react-jwt';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, userData, userout } from '../Slices/userSlice';
+import { useNavigate } from 'react-router-dom';
+import { logMe } from '../../services/apiCalls';
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 export const Login = () => {

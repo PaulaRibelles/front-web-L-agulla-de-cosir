@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 import { InputText } from '../../common/InputText/InputText';
 import { checkInputs } from '../../Helpers/useful';
+import { registerMe } from '../../services/apiCalls';
 
 export const Register = () => {
     const navigate = useNavigate();
@@ -102,6 +103,29 @@ export const Register = () => {
         }));
     };
 
+
+    //REGISTER FUNCTION
+
+    const Registro = () => {
+        registerMe(credenciales)
+        .then(respuesta => {
+            let nameUser = respuesta.data.name
+            if(nameUser){
+                setWelcome(`Enhorabuena ${nameUser}, te has registrado correctamente`);
+                setTimeout(() => {
+                navigate("/login");
+            }, 3000);
+        }
+        else{
+            setWelcome(`Error: ${respuesta.data}`)
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        }
+    })
+    
+        .catch((error) => console.log(error));
+    };
 
 
     //RENDER
@@ -236,7 +260,10 @@ export const Register = () => {
                     blurFunction={(e) => inputValidate(e)}
                 />
 
-            <div className='buttonAct' onClick={() => logmeIn()}>Enviar</div>
+                <div>{credencialesError.passwordError}</div>
+                <div className={registerAct ? "buttonDes buttonAct" : "buttonDes" }
+                    onClick={Registro}>Registrarse 
+                </div>
 
                 </div>
             )
