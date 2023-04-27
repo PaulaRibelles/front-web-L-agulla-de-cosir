@@ -14,9 +14,9 @@ export const Register = () => {
         //Error Validation
 
         const [credenciales, setCredenciales] = useState({
-            dni: "",
             name: "",
             surname: "",
+            dni: "",
             city: "",
             phone: "",
             email: "",
@@ -24,9 +24,9 @@ export const Register = () => {
         });
 
         const [credencialesError, setCredencialesError] = useState({
-            dniError: "",
             nameError: "",
             surnameError: "",
+            dniError: "",
             cityError: "",
             phoneError: "",
             emailError: "",
@@ -34,9 +34,9 @@ export const Register = () => {
         });
 
         const [credencialesValid, setCredencialesValid] = useState({
-            dniValid: false,
             nameValid: false,
             surnameValid: false,
+            dniValid: false,
             cityValid: false,
             phoneValid: false,
             emailValid: false,
@@ -150,10 +150,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="text"
+                    type={"text"}
                     maxLength={25}
-                    name="name"
-                    placeholder="Escribe tu nombre"
+                    name={"name"}
+                    placeholder={"Escribe tu nombre"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
@@ -167,10 +167,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="text"
+                    type={"text"}
                     maxLength={50}
-                    name="surname"
-                    placeholder="Escribe tus apellidos"
+                    name={"surname"}
+                    placeholder={"Escribe tus apellidos"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
@@ -184,10 +184,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="text"
+                    type={"text"}
                     maxLength={9}
-                    name="dni"
-                    placeholder="00000000A"
+                    name={"dni"}
+                    placeholder={"00000000A"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
@@ -201,10 +201,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="text"
+                    type={"text"}
                     maxLength={50}
-                    name="city"
-                    placeholder="Escribe tu ciudad"
+                    name={"city"}
+                    placeholder={"Escribe tu ciudad"}
                     required={false}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
@@ -218,10 +218,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="text"
+                    type={"text"}
                     maxLength={12}
-                    name="phone"
-                    placeholder="+34 000000000"
+                    name={"phone"}
+                    placeholder={"+34 000000000"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
@@ -235,10 +235,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="email"
+                    type={"email"}
                     maxLength={30}
-                    name="email"
-                    placeholder="Escribe un email válido"
+                    name={"email"}
+                    placeholder={"Escribe un email válido"}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
@@ -251,10 +251,10 @@ export const Register = () => {
                         ? "inputBasicDesign inputDesign"
                         : "inputBasicDesign inputErrorDesign"
                     }
-                    type="password"
+                    type={"password"}
                     maxLength={15}
-                    name="password"
-                    placeholder="Escribe una contraseña"
+                    name={"password"}
+                    placeholder={"Escribe una contraseña"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
