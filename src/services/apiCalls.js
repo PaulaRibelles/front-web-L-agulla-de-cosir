@@ -17,6 +17,7 @@ export const registerMe = async (body) => {
 //USERS
 
 export const bringUsers = async (token) => {
+    
     let config = {
         headers: { 
         'Authorization': 'Bearer '+ token,  
@@ -25,14 +26,17 @@ export const bringUsers = async (token) => {
     return await axios.get(`${root}/api/users`, config);
 }
 
+
 //PROFILE
 
 export const myProfile = async (token) =>{
+
     let config = {
         headers: { 
-        'Authorization': 'Bearer '+ token,  
+        'Authorization': `Bearer, ${token}`,
     }
     };
     return await axios.get(`${root}/user/profile`, config);
 }
+
 

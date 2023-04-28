@@ -19,10 +19,14 @@ export const Profile = () => {
     //USE EFFECT
 
 useEffect(() => {
+
     if(!user?.name){
-        myProfile(credentialsRdx.credentials.token)
+
+        myProfile(credentialsRdx.credentials.token.token)
+        
         .then((respuesta) => {
-            setUsers(respuesta.userData)
+
+            setUsers(respuesta.data)
         })
     }
 
@@ -36,7 +40,7 @@ useEffect(() => {
 return (
     <Container fluid>
     <Row>
-        <Col lg={10} className='d-flex flex-column align-items-center justify-content-center'>
+        <Col lg={10} className='flex-column align-items-center justify-content-center'>
             <Card>
                 <Card.Body>
                 <Card.Title>{user.name} {user.surname}</Card.Title>
