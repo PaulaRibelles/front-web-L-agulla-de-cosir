@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const BarraNav = () => {
     return (
 
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="light" expand="lg">
         <Container fluid>
             <Navbar.Brand as={Link} to='/'>L'agulla de cosir</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
