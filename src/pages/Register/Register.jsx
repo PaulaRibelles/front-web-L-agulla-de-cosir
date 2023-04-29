@@ -52,7 +52,10 @@ export const Register = () => {
     //INPUT HANDLER
 
     const inputHandler = (e) => {
-        setCredenciales((preveState => ({...preveState, [e.target.name]: e.target.value,})));
+        setCredenciales((preveState => ({
+            ...preveState, 
+            [e.target.name]: e.target.value,})
+            ));
     };
 
     //USE EFFECT
