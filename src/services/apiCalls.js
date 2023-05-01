@@ -50,3 +50,12 @@ export const myAppointment = async (body, token) => {
     };
     return await axios.post(`${root}/appointment/create`, body, config);
 }
+
+export const bringAppointments = async (token) => {
+    let config = {
+        headers: {
+            'Authorization': `Bearer, ${token}`,
+        }
+    };
+    return await axios.get(`${root}/appointment/getClient`, config);
+}
