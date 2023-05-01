@@ -20,7 +20,7 @@ export const BarraNav = () => {
 
     return (
 
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
         <Container fluid>
             <Navbar.Brand as={Link} to='/'>
             <img

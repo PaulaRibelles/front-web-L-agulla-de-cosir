@@ -1,0 +1,21 @@
+.homeDesign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.LagullaDesign{
+    margin-top: 2rem;
+    background-image: url(../../img/tela-fallera-02.jpg);
+    display: flex;
+    align-items: center;
+}
+
+.isologoDesign{
+    margin-top: 2rem;
+}
+
+.GroupCardDesign{
+    margin-top: 3rem;
+}
