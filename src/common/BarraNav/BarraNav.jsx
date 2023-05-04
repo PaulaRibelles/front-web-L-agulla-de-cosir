@@ -52,6 +52,7 @@ export const BarraNav = () => {
                         </>
                     ) : (
                         <>
+                        <Nav.Link as={Link} to={'/woman'}>Mujer</Nav.Link>
                         <Nav.Link as={Link} to={'/login'}>Login</Nav.Link>
                         <Nav.Link as={Link} to={'/register'}>Registro</Nav.Link>
                         </>
