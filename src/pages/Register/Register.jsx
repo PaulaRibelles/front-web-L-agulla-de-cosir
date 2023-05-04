@@ -6,6 +6,8 @@ import { InputText } from '../../common/InputText/InputText';
 import { checkInputs } from '../../Helpers/useful';
 import { registerMe } from '../../services/apiCalls';
 
+import './Register.css'
+
 export const Register = () => {
     const navigate = useNavigate();
 
@@ -134,16 +136,16 @@ export const Register = () => {
     //RENDER
 
     return (
-    <Container fluid>
+    <Container fluid className='containerRegister'>
         <Row>
-            <Col>
+        <Col>
             <div>
                 <h2>Registro de usuarios</h2>
             </div>
             {welcome !== ""? (
                 <div>{welcome}</div>
             ) : (
-                <div>
+                <div className='registerDesign'>
 
                 {/* INPUT NAME */}
 

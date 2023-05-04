@@ -39,6 +39,15 @@ export const myProfile = async (token) =>{
     return await axios.get(`${root}/user/profile`, config);
 }
 
+export const userUpdate = async (token) =>{
+    let config ={
+        headers: {
+            'Authorization': `Bearer, ${token}`,
+        }
+    };
+    return await axios.get(`${root}/user/update`, config);
+}
+
 
 //APPOINTMENTS
 

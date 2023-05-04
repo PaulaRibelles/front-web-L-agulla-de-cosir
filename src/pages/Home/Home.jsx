@@ -3,8 +3,8 @@ import { Card, CardGroup, Container } from 'react-bootstrap';
 import "./Home.css";
 import isologotipo from '../../img/L-agulla-de-cosir-logo.png';
 import maquinacoser from '../../img/procesos-sastreria.jpg';
-import trajeMujer from '../../img/mujer-fallera.jpg';
-import trajeHombre from '../../img/fallero-hombre.jpg';
+import trajeMujer from '../../img/detalle-tela.jpg';
+import trajeHombre from '../../img/tela-negra.jpg';
 
 export const Home = () => {
   return (
@@ -30,7 +30,8 @@ export const Home = () => {
 
       <CardGroup
       className='GroupCardDesign'
-      >
+      style={{height: '20rem', width:'62rem'}}>
+      
 
         {/* Card Pide Cita */}
 
@@ -43,7 +44,7 @@ export const Home = () => {
           <Card.Title>Pide cita</Card.Title>
           <Card.Text>
             Cada uno de nuestro/as indumentaristas están especializados en un tipo de traje.
-            Pide cita y cuentáles cómo es tu traje de ensueño.
+            Pide cita y cuentáles cómo quieres el tuyo.
           </Card.Text>
         </Card.Body>
       </Card>

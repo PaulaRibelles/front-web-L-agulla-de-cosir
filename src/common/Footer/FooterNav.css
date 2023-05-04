@@ -1,0 +1,22 @@
+.footer-D{
+    margin-top: 5em
+}
+
+.redes{
+    justify-content: space-between;
+}
+
+.d-block{
+    width: 15rem;
+    height: 11rem;
+}
+
+.instagramIcon{
+    width: 2rem;
+    margin-left: 16rem;
+}
+
+.facebookIcon{
+    width: 1rem;
+    margin-left: -19rem;
+}

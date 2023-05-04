@@ -1,0 +1,19 @@
+.containerloginDesign{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-bottom: 3rem;
+    background-image: url(../../img/black-background.jpg);
+    height: 55rem;
+}
+
+.loginDesign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 60rem;
+    height: 25rem;
+    background-color: white;
+}

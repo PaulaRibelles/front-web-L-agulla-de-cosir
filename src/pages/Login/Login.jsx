@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { logMe } from '../../services/apiCalls';
 import { Col, Container, Row } from 'react-bootstrap';
 
+import "./Login.css"
 
 export const Login = () => {
 
@@ -119,8 +120,8 @@ export const Login = () => {
     //RENDER
 
     return (
-    <Container fluid>
-        <Row>
+    <Container fluid className='containerloginDesign'>
+        <Row className="loginDesign">
             <Col lg={6}>
                 <div>
                     <h2>Inicia sesión</h2>

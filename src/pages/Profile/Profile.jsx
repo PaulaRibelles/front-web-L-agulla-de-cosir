@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userData } from '../Slices/userSlice';
 import { myProfile } from '../../services/apiCalls';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 
 
 export const Profile = () => {
@@ -46,6 +46,7 @@ return (
                 <Card.Title>{user.name} {user.surname}</Card.Title>
                 <Card.Text>{user.phone}</Card.Text>
                 <Card.Text>{user.email}</Card.Text>
+                <Nav.Link as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link>
                 </Card.Body>
             </Card>
         </Col>

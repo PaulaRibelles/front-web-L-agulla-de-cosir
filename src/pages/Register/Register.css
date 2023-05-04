@@ -1,0 +1,19 @@
+.containerRegister{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-bottom: 3rem;
+    height: 55rem;
+    background-image: url(../../img/black-background.jpg);
+}
+
+.registerDesign{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    width: 60rem;
+    height: 30rem;
+    background-color: white;
+}
