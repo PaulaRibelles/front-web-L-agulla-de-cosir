@@ -6,7 +6,7 @@ import { bringAppointments } from '../../services/apiCalls';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
 
-export const userAppointment = () => {
+export const UserAppointment = () => {
 
     //HOOKS
 
@@ -21,7 +21,7 @@ export const userAppointment = () => {
         if(!user?.name){
             bringAppointments(credentialsRdx.credentials.token.token)
             .then((respuesta) => {
-                setUser(respuesta.data)
+            setUser(respuesta.data)
             })
         }
         if (!credentialsRdx.credentials.token) {
@@ -37,7 +37,7 @@ export const userAppointment = () => {
                 <Col>
                     {user.map((citas) => {
                         return (
-                            <Card>
+                            <Card key={citas.id}>
                                 <Card.Body>
                                     <Card.Title>{citas.Dressmaker.speciality}</Card.Title>
                                         <Card.Text>{citas.Dressmaker.User.name} {citas.Dressmaker.User.surname} </Card.Text>                             

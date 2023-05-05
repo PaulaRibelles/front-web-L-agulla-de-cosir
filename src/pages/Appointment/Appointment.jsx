@@ -11,12 +11,12 @@ export const Appointment = () => {
 
     //HOOKS
 
-    const [credenciales, setCredenciales] = useState({
+    const [ dressmakerDate, setDressmakerDate] = useState({
         dressmaker_id: "",
         date: "",
     });
 
-    const [credencialesError, setCredencialesError] = useState({
+    const [dressmakerDateError, setDressmakerDateError] = useState({
         dressmaker_idError: "",
         dateError: "",
     });
@@ -43,7 +43,9 @@ export const Appointment = () => {
     const navigate = useNavigate();
     const [newDate, setnewDate] = useState(new Date());
     const ReduxCredentials = useSelector(userData);
-    const {token} = ReduxCredentials.credentials;
+    const token = ReduxCredentials.credentials.token.token;
+    let nameUser = ReduxCredentials.credentials.user.email;
+    console.log(ReduxCredentials.credentials);
 
     const [welcome, setWelcome] = useState("");
 
@@ -52,25 +54,21 @@ export const Appointment = () => {
     //INPUT HANDLER
 
     const inputHandler = (e) => {
-        setCredenciales((preveState => ({
+        setDressmakerDate((preveState => ({
             ...preveState, 
             [e.target.name]: e.target.value,
             })
         ));
-    };
+    }
 
-    //USE EFFECT
-
-    useEffect(() =>{
-        console.log(credenciales);
-    })
 
     //NEW APPOINTMENT FUNCTION
 
     const newAppointment = () => {
-        myAppointment(credenciales, token)
-        .then(respuesta => {
-            let nameUser = ReduxCredentials.credentials.user.email;
+        myAppointment(dressmakerDate, ReduxCredentials.credentials.token.token)
+        // .then(respuesta => {
+        //     setDressmakerDate(respuesta.data)
+            
             if(nameUser){
                 setWelcome(`Gracias ${nameUser} por confiar en nosotros`);
                 setTimeout(() => {
@@ -80,9 +78,9 @@ export const Appointment = () => {
             else{
                 setWelcome(`Error: ${respuesta.data}`)
             }
-        })
+        // })
 
-        .catch((error) => console.log(error)); 
+        // .catch((error) => console.log(error)); 
     };
 
 
@@ -114,7 +112,7 @@ export const Appointment = () => {
                             })}
                 </select>
             </div>
-            <div>{credencialesError.passwordError}</div>
+            <div>{dressmakerDateError.passwordError}</div>
             <div className='buttonAct' onClick={() => newAppointment()}>Pedir cita</div>
             <div>{welcome}</div>
             </Col>

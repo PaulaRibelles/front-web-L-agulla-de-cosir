@@ -56,11 +56,13 @@ export const userUpdate = async (token) =>{
 export const myAppointment = async (body, token) => {
     let config = {
         headers: {
-            'Athorization': `Bearer, ${token}`,
+            'Athorization': 'Bearer' + token,
         }
     };
     return await axios.post(`${root}/appointment/create`, body, config);
 }
+
+
 
 export const bringAppointments = async (token) => {
     let config = {
