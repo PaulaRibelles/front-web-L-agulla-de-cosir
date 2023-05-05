@@ -1,4 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { userData } from '../Slices/userSlice';
+import { userUpdate } from '../../services/apiCalls';
+import { Col, Container, Row } from 'react-bootstrap';
+import { InputText } from '../../common/InputText/InputText';
 
 
 export const UpdateProfile = () => {
@@ -107,9 +113,6 @@ export const UpdateProfile = () => {
         <Container fluid className='containerRegister'>
         <Row>
         <Col>
-            <div>
-                <h2>Registro de usuarios</h2>
-            </div>
             {welcome !== ""? (
                 <div>{welcome}</div>
             ) : (
@@ -149,23 +152,6 @@ export const UpdateProfile = () => {
                     blurFunction={(e) => inputValidate(e)}
                 />
 
-                {/* INPUT DNI */}
-
-                <InputText
-                    className={
-                    credencialesError.passwordError === ""
-                        ? "inputBasicDesign inputDesign"
-                        : "inputBasicDesign inputErrorDesign"
-                    }
-                    type={"text"}
-                    maxLength={9}
-                    name={"dni"}
-                    placeholder={"00000000A"}
-                    required={true}
-                    changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
-                />
-
                 {/* INPUT CITY */}
 
                 <InputText
@@ -200,42 +186,9 @@ export const UpdateProfile = () => {
                     blurFunction={(e) => inputValidate(e)}
                 />
 
-                {/* INPUT EMAIL */}
-
-                <InputText
-                className={
-                    credencialesError.passwordError === ""
-                        ? "inputBasicDesign inputDesign"
-                        : "inputBasicDesign inputErrorDesign"
-                    }
-                    type={"email"}
-                    maxLength={30}
-                    name={"email"}
-                    placeholder={"Escribe un email válido"}
-                    changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
-                />
-
-                {/* INPUT PASSWORD */}
-
-                <InputText
-                className={
-                    credencialesError.passwordError === ""
-                        ? "inputBasicDesign inputDesign"
-                        : "inputBasicDesign inputErrorDesign"
-                    }
-                    type={"password"}
-                    maxLength={15}
-                    name={"password"}
-                    placeholder={"Escribe una contraseña"}
-                    required={true}
-                    changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
-                />
-
                 <div>{credencialesError.passwordError}</div>
                 <div className={registerAct ? "buttonDes buttonAct" : "buttonDes" }
-                    onClick={updateUser}>Enviar cambios
+                    onClick={updateUser}>Editar
                 </div>
 
                 </div>

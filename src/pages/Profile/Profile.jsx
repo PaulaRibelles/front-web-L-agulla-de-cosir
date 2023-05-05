@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userData } from '../Slices/userSlice';
 import { myProfile } from '../../services/apiCalls';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Nav, Row } from 'react-bootstrap';
 
 
 export const Profile = () => {
@@ -21,15 +21,11 @@ export const Profile = () => {
 useEffect(() => {
 
     if(!user?.name){
-
         myProfile(credentialsRdx.credentials.token.token)
-        
         .then((respuesta) => {
-
             setUsers(respuesta.data)
         })
     }
-
     if (!credentialsRdx.credentials.token) {
     navigate("/");
     }

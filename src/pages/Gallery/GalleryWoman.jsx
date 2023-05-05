@@ -61,7 +61,7 @@ export const GalleryWoman = () => {
                             <Card.Title>Consuelo</Card.Title>
                             <Card.Text>
                                 Exclusivo dibujo que lució la FMV 2020/2021 Consuelo Llobell.
-                                Manteletas bordadas en oro sobre batista con lentejuelas oro .
+                                Manteletas bordadas en oro sobre tul de algodón con lentejuelas oro .
                             </Card.Text>
                         </Card.Body>
                     </Card>{' '}
@@ -72,7 +72,7 @@ export const GalleryWoman = () => {
                             <Card.Title>Azahar</Card.Title>
                             <Card.Text>
                                 Estrecho de seda con 12 colores de trama y bordado metal oro viejo.
-                                Manteletas bordadas en oro y beige sobre tul de algodón y lentejuela oro.
+                                Manteletas bordadas en oro y beige y lentejuela oro.
                             </Card.Text>
                         </Card.Body>
                     </Card>{' '}

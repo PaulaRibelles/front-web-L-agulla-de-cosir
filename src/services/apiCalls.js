@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const root = "http://localhost:5000"
 
+// const root = "back-web-l-agulla-de-cosir-production.up.railway.app"
+
 //LOGIN
 
 export const logMe = async (body) => {
@@ -23,7 +25,7 @@ export const bringUsers = async (token) => {
         'Authorization': 'Bearer '+ token,  
     }
     };
-    return await axios.get(`${root}/api/users`, config);
+    return await axios.get(`${root}/user/profile`, config);
 }
 
 
@@ -63,7 +65,7 @@ export const myAppointment = async (body, token) => {
 export const bringAppointments = async (token) => {
     let config = {
         headers: {
-            'Authorization': `Bearer, ${token}`,
+            'Authorization': 'Bearer ' + token,
         }
     };
     return await axios.get(`${root}/appointment/getClient`, config);

@@ -21,13 +21,31 @@ export const Appointment = () => {
         dateError: "",
     });
 
+    const [dressmakers, setDressmakers] = useState([
+        {
+            id: 1,
+            speciality: "Mujer S.XVIII"
+        },
+        {
+            id: 2,
+            speciality: "Mujer S.XIX"
+        },
+        {
+            id:3,
+            speciality: "Hombre Torrentí"
+        },
+        {
+            id:4,
+            speciality: "Hombre Saraguey"
+        }
+    ]);
+
     const navigate = useNavigate();
     const [newDate, setnewDate] = useState(new Date());
     const ReduxCredentials = useSelector(userData);
     const {token} = ReduxCredentials.credentials;
 
     const [welcome, setWelcome] = useState("");
-
 
     const checkError =(e) =>{}
 
@@ -67,7 +85,6 @@ export const Appointment = () => {
         .catch((error) => console.log(error)); 
     };
 
-    
 
     //RENDER
 
@@ -82,18 +99,19 @@ export const Appointment = () => {
                 className={"input-D"}
                 type={"datetime-local"}
                 name={"date"}
-                placeholder={""}
+                placeholder={"Seleccionar fecha"}
                 required={true}
                 changeFunction={(e)=>inputHandler(e)}
                 blurFunction={(e)=> checkError(e)}
                 />
             <div>
-                <select className="input-D" name="dressmaker_id" onChange={(e) => inputHandler(e) }>
+                <select className="dropdown input-D" name={"dressmaker_id"} onChange={(e) => inputHandler(e) }>
                     <option value="">Selecciona tu tipo de traje</option>
-                        <option value="1">Mujer S.XVIII</option>
-                        <option value="2">Mujer S.XIX</option>
-                        <option value="3">Hombre torrentí</option>
-                        <option value="4">Hombre Saraguey</option>
+                        {dressmakers.map((dressmaker) => {
+                            return (
+                                <option key={dressmaker.id} value={dressmaker.id}>{dressmaker.speciality}</option>
+                            )
+                            })}
                 </select>
             </div>
             <div>{credencialesError.passwordError}</div>

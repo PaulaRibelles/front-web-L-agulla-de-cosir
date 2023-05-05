@@ -13,7 +13,7 @@ export const userAppointment = () => {
     const [user, setUser] = useState([])
 
     const credentialsRdx = useSelector(userData);
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     //USE EFFECT
 

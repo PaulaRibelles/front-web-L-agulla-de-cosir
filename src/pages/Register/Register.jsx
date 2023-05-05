@@ -139,13 +139,15 @@ export const Register = () => {
     <Container fluid className='containerRegister'>
         <Row>
         <Col>
-            <div>
-                <h2>Registro de usuarios</h2>
-            </div>
+
             {welcome !== ""? (
                 <div>{welcome}</div>
             ) : (
                 <div className='registerDesign'>
+
+            <div>
+                <h2>Registro de usuarios</h2>
+            </div>
 
                 {/* INPUT NAME */}
 
@@ -163,6 +165,7 @@ export const Register = () => {
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
+                <div>{credencialesError.nameError}</div>
 
                 {/* INPUT SURNAME */}
 
@@ -180,6 +183,7 @@ export const Register = () => {
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
+                <div>{credencialesError.surnameError}</div>
 
                 {/* INPUT DNI */}
 
@@ -192,11 +196,12 @@ export const Register = () => {
                     type={"text"}
                     maxLength={9}
                     name={"dni"}
-                    placeholder={"00000000A"}
+                    placeholder={"DNI: 00000000A"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
+                <div>{credencialesError.dniError}</div>
 
                 {/* INPUT CITY */}
 
@@ -214,6 +219,7 @@ export const Register = () => {
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
+                <div>{credencialesError.cityError}</div>
 
                 {/* INPUT PHONE */}
 
@@ -231,6 +237,7 @@ export const Register = () => {
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
+                <div>{credencialesError.phoneError}</div>
 
                 {/* INPUT EMAIL */}
 
@@ -247,6 +254,7 @@ export const Register = () => {
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
+                <div>{credencialesError.emailError}</div>
 
                 {/* INPUT PASSWORD */}
 
@@ -264,8 +272,10 @@ export const Register = () => {
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => inputValidate(e)}
                 />
-
                 <div>{credencialesError.passwordError}</div>
+
+                {/* Register Button */}
+
                 <div className={registerAct ? "buttonDes buttonAct" : "buttonDes" }
                     onClick={Registro}>Registrarse 
                 </div>

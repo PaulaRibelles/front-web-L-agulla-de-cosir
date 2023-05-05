@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userData, userout } from '../../pages/Slices/userSlice';
 
@@ -13,9 +13,11 @@ export const BarraNav = () => {
     const credencialesRdx = useSelector(userData)
     const dispatch = useDispatch()
 
+    const navigate = useNavigate();
+
     const logmeOut = () => {
         dispatch (userout({credentials : {}, token : ""}))
-        return Navigate ("/")
+        return navigate ("/")
     }
 
     return (
@@ -40,14 +42,15 @@ export const BarraNav = () => {
                     {credencialesRdx?.credentials?.user?.roleId === 1 ? (
                     <>
                         <Nav.Link as={Link} to={'/profile'}>Profile</Nav.Link>
-                        <Nav.Link as={Link} to={'/appointments-all'}>Todas las citas</Nav.Link>
+                        <Nav.Link as={Link} to={'/getAll'}>Todas las citas</Nav.Link>
                         <Nav.Link as={Link} to={'/'} onClick={()=>logmeOut()}>Cerrar sesión</Nav.Link>
                     </>
                     ) : credencialesRdx?.credentials?.user?.roleId === 2 ? (
                         <>
+                        <Nav.Link as={Link} to={'/woman'}>Mujer</Nav.Link>
                         <Nav.Link as={Link} to={'/profile'}>Profile</Nav.Link>
                         <Nav.Link as={Link} to={'/appointment'}>Pide tu cita</Nav.Link>
-                        <Nav.Link as={Link} to={'/appointment-client'}>Ver tus citas</Nav.Link>
+                        <Nav.Link as={Link} to={'/getClient'}>Ver tus citas</Nav.Link>
                         <Nav.Link as={Link} to={'/'} onClick={()=>logmeOut()}>Cerrar sesión</Nav.Link>
                         </>
                     ) : (
