@@ -82,3 +82,13 @@ export const allAppointments = async (token) => {
     };
     return await axios.get(`${root}/appointment/getAll`, config);
 }
+
+
+export const deleteAppointments = async (params, token) => {
+    let config = {
+        headers: {
+            'Authorization': `Bearer, ${token}`,
+        }
+    };
+    return await axios.get(`${root}/appointment/delete/${params}`, config)
+}
