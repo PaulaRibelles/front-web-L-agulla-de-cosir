@@ -1,4 +1,4 @@
-<h1 align="center"> Clínica-TrueSmile </h1>
+<h1 align="center"> L'agulla de cosir </h1>
 
 <details>
   <summary>Contenido 📝</summary>
