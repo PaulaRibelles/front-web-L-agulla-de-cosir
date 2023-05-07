@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { userData } from '../Slices/userSlice';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { allAppointments } from '../../services/apiCalls';
 
 
 export const AdminAppointments = () => {

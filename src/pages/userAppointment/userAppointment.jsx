@@ -64,7 +64,7 @@ export const UserAppointment = () => {
                             </Card>
                         )
                     })}
-                    <div className='buttonAct' onClick={() => deleteAppo()}>Eliminar</div>
+                    {/* <div className='buttonAct' onClick={() => deleteAppo()}>Eliminar</div> */}
                 </Col>
             </Row>
         </Container>

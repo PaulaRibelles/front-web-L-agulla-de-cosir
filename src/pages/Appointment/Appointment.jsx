@@ -45,7 +45,7 @@ export const Appointment = () => {
     const ReduxCredentials = useSelector(userData);
     const token = ReduxCredentials.credentials.token.token;
     let nameUser = ReduxCredentials.credentials.user.email;
-    console.log(ReduxCredentials.credentials);
+
 
     const [welcome, setWelcome] = useState("");
 
