@@ -17,10 +17,10 @@ export const UserAppointment = () => {
     //USE EFFECT
 
     useEffect(() => {
-        if(user.length === 0 ){
+        if(!user.length){
             bringAppointments(credentialsRdx.credentials.token.token)
             .then((respuesta) => {
-                console.log(respuesta, "hola rtespuesta getuser");
+
             setUser(respuesta.data)
             }).catch((error) => console.log(error));
         }
