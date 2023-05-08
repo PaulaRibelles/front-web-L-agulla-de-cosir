@@ -4,49 +4,51 @@ import { userData } from '../Slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { bringAppointments, deleteAppointments } from '../../services/apiCalls';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-
-
 export const UserAppointment = () => {
 
     //HOOKS
 
-    const [user, setUser] = useState([])
-
     const credentialsRdx = useSelector(userData);
+    const [user, setUser] = useState([])
     const navigate = useNavigate();
+    console.log(credentialsRdx)
+
 
     //USE EFFECT
 
     useEffect(() => {
-        if(!user?.name){
+        if(user.length === 0 ){
             bringAppointments(credentialsRdx.credentials.token.token)
             .then((respuesta) => {
+                console.log(respuesta, "hola rtespuesta getuser");
             setUser(respuesta.data)
-            })
+            }).catch((error) => console.log(error));
         }
-        if (!credentialsRdx.credentials.token) {
+        else {(!credentialsRdx.credentials.token) 
             navigate("/")
         }
-    }, [user.name]);
+            
+    }, [user]);
+
 
     //DELETE FUNCTION
 
-    const deleteAppo = () => {
-        deleteAppointments(params, token)
-        .then(
-            () => {
-                console.log(params)
-                setTimeout(() => {
-                    navigate("/")
-                },300);
-            }
-        )
-        .catch(error => {console.log(error);
-        })
-    }
+    // const deleteAppo = () => {
+    //     deleteAppointments(params, token)
+    //     .then(
+    //         () => {
+    //             console.log(citas.id)
+    //             setTimeout(() => {
+    //                 navigate("/")
+    //             },300);
+    //         }
+    //     )
+    //     .catch(error => {console.log(error);
+    //     })
+    // }
 
 
-    //RENDER    
+    //RENDER
 
     return (
         <Container>
@@ -58,7 +60,7 @@ export const UserAppointment = () => {
                             <Card key={citas.id}>
                                 <Card.Body>
                                     <Card.Title>Tipo de traje: {citas.Dressmaker.speciality}</Card.Title>
-                                        <Card.Text>Indumentarista: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname} </Card.Text>                             
+                                        <Card.Text>Indumentarista: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname} </Card.Text>
                                         <Card.Text>Fecha: {citas.date} </Card.Text>
                                 </Card.Body>
                             </Card>

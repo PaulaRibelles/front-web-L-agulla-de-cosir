@@ -9,18 +9,23 @@ import { myAppointment } from '../../services/apiCalls';
 
 export const Appointment = () => {
 
+    const navigate = useNavigate();
+    // const [newDate, setnewDate] = useState(new Date());
+    const ReduxCredentials = useSelector(userData);
+    const token = ReduxCredentials.credentials.token.token;
+    let nameUser = ReduxCredentials.credentials.user.email;
+
     //HOOKS
 
     const [ dressmakerDate, setDressmakerDate] = useState({
-        dressmaker_id: "",
-        date: "",
+        dressmaker_id: "4",
+        date: "2023-12-12",
     });
-
+    console.log(dressmakerDate);
     const [dressmakerDateError, setDressmakerDateError] = useState({
         dressmaker_idError: "",
         dateError: "",
     });
-
     const [dressmakers, setDressmakers] = useState([
         {
             id: 1,
@@ -39,36 +44,25 @@ export const Appointment = () => {
             speciality: "Hombre Saraguey"
         }
     ]);
-
-    const navigate = useNavigate();
-    const [newDate, setnewDate] = useState(new Date());
-    const ReduxCredentials = useSelector(userData);
-    const token = ReduxCredentials.credentials.token.token;
-    let nameUser = ReduxCredentials.credentials.user.email;
-
-
     const [welcome, setWelcome] = useState("");
-
     const checkError =(e) =>{}
 
     //INPUT HANDLER
 
     const inputHandler = (e) => {
         setDressmakerDate((preveState => ({
-            ...preveState, 
+            ...preveState,
             [e.target.name]: e.target.value,
             })
         ));
     }
 
-
     //NEW APPOINTMENT FUNCTION
 
     const newAppointment = () => {
-        myAppointment(dressmakerDate, ReduxCredentials.credentials.token.token)
-        // .then(respuesta => {
+        myAppointment(dressmakerDate, token)
+        //.then(respuesta => {
         //     setDressmakerDate(respuesta.data)
-            
             if(nameUser){
                 setWelcome(`Gracias ${nameUser} por confiar en nosotros`);
                 setTimeout(() => {
@@ -78,11 +72,9 @@ export const Appointment = () => {
             else{
                 setWelcome(`Error: ${respuesta.data}`)
             }
-        // })
-
-        // .catch((error) => console.log(error)); 
+        //})
+        //.catch((error) => console.log(error));
     };
-
 
     //RENDER
 
