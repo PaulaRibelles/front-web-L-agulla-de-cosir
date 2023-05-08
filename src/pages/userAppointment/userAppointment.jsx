@@ -11,8 +11,6 @@ export const UserAppointment = () => {
     const credentialsRdx = useSelector(userData);
     const [user, setUser] = useState([])
     const navigate = useNavigate();
-    console.log(credentialsRdx)
-
 
     //USE EFFECT
 
@@ -24,7 +22,7 @@ export const UserAppointment = () => {
             setUser(respuesta.data)
             }).catch((error) => console.log(error));
         }
-        else {(!credentialsRdx.credentials.token) 
+        if(!credentialsRdx.credentials.token) {
             navigate("/")
         }
             
