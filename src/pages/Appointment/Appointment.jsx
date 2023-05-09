@@ -10,7 +10,6 @@ import { myAppointment } from '../../services/apiCalls';
 export const Appointment = () => {
 
     const navigate = useNavigate();
-    // const [newDate, setnewDate] = useState(new Date());
     const ReduxCredentials = useSelector(userData);
     const token = ReduxCredentials.credentials.token.token;
     let nameUser = ReduxCredentials.credentials.user.email;
@@ -18,10 +17,10 @@ export const Appointment = () => {
     //HOOKS
 
     const [ dressmakerDate, setDressmakerDate] = useState({
-        dressmaker_id: "4",
-        date: "2023-12-12",
+        dressmaker_id: "",
+        date: "",
     });
-    console.log(dressmakerDate);
+
     const [dressmakerDateError, setDressmakerDateError] = useState({
         dressmaker_idError: "",
         dateError: "",
@@ -61,8 +60,7 @@ export const Appointment = () => {
 
     const newAppointment = () => {
         myAppointment(dressmakerDate, token)
-        //.then(respuesta => {
-        //     setDressmakerDate(respuesta.data)
+
             if(nameUser){
                 setWelcome(`Gracias ${nameUser} por confiar en nosotros`);
                 setTimeout(() => {
@@ -72,14 +70,13 @@ export const Appointment = () => {
             else{
                 setWelcome(`Error: ${respuesta.data}`)
             }
-        //})
-        //.catch((error) => console.log(error));
+
     };
 
     //RENDER
 
     return (
-    <Container>
+    <Container fluid>
         <Row>
             <Col>
             <div>
@@ -95,7 +92,11 @@ export const Appointment = () => {
                 blurFunction={(e)=> checkError(e)}
                 />
             <div>
-                <select className="dropdown input-D" name={"dressmaker_id"} onChange={(e) => inputHandler(e) }>
+                <select 
+                className="dropdown input-D" 
+                name={"dressmaker_id"} 
+                onChange={(e) => inputHandler(e) }
+                >
                     <option value="">Selecciona tu tipo de traje</option>
                         {dressmakers.map((dressmaker) => {
                             return (

@@ -9,9 +9,9 @@ export const UserAppointment = () => {
     //HOOKS
 
     const credentialsRdx = useSelector(userData);
-    // const appointmentRdx = useSelector()
     const [user, setUser] = useState([])
     const navigate = useNavigate();
+
 
     //USE EFFECT
 
@@ -32,13 +32,15 @@ export const UserAppointment = () => {
 
     //DELETE FUNCTION
 
-    const deleteAppo = () => {
-        deleteAppointments(credentialsRdx.credentials.token.token)
+    const deleteAppo = (citas) => {
+        deleteAppointments(citas.id, credentialsRdx.credentials.token.token)
         .then(
             () => {
-                console.log(citas.id)
                 setTimeout(() => {
-                    navigate("/getClient")
+                    bringAppointments(credentialsRdx.credentials.token.token)
+                    .then((respuesta) => {
+                    setUser(respuesta.data)
+                    }).catch((error) => console.log(error));
                 },300);
             }
         )
@@ -61,7 +63,7 @@ export const UserAppointment = () => {
                                     <Card.Title>Tipo de traje: {citas.Dressmaker.speciality}</Card.Title>
                                         <Card.Text>Indumentarista: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname} </Card.Text>
                                         <Card.Text>Fecha: {citas.date} </Card.Text>
-                                        <div className='buttonAct' onClick={() => deleteAppo()}>Eliminar</div>
+                                        <div className='buttonAct' onClick={() => deleteAppo(citas)}>Eliminar</div>
                                 </Card.Body>
                             </Card>
                         )

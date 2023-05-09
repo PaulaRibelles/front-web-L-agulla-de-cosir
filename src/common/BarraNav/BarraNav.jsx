@@ -43,6 +43,7 @@ export const BarraNav = () => {
                     <>
                         <Nav.Link as={Link} to={'/profile'}>Profile</Nav.Link>
                         <Nav.Link as={Link} to={'/getAll'}>Todas las citas</Nav.Link>
+                        <Nav.Link as={Link} to={'/createDressmaker'}>Crear indumentarista</Nav.Link>
                         <Nav.Link as={Link} to={'/'} onClick={()=>logmeOut()}>Cerrar sesión</Nav.Link>
                     </>
                     ) : credencialesRdx?.credentials?.user?.roleId === 2 ? (

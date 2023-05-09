@@ -11,6 +11,7 @@ import { GalleryWoman } from '../Gallery/GalleryWoman';
 import { UserAppointment } from '../userAppointment/userAppointment';
 import { AdminAppointments } from '../Admin/AdminAppointments';
 import { GalleryMan } from '../Gallery/GalleryMan';
+import { AdminCreateDressmaker } from '../Admin/AdminCreateDressmaker';
 
 
 
@@ -26,6 +27,7 @@ export const Body = () => {
                 <Route path='/appointment' element={ <Appointment />}/>
                 <Route path='/getClient' element={<UserAppointment/>}/>
                 <Route path='/getAll' element={<AdminAppointments/>}/>
+                <Route path='/createDressmaker' element={<AdminCreateDressmaker/>}/>
                 <Route path='/UpdateProfile' element={<UpdateProfile/>}/>
                 <Route path='/woman' element={<GalleryWoman/>}/>
                 <Route path='/man' element={<GalleryMan/>}/>

@@ -31,7 +31,6 @@ export const bringUsers = async (token) => {
 
 //PROFILE
 
-
     //Get profile
 
 export const myProfile = async (token) =>{
@@ -80,21 +79,11 @@ export const bringAppointments = async (token) => {
     return await axios.get(`${root}/appointment/getClient`, config);
 }
 
-    //Get ALL appointments (as Admin)
-
-export const allAppointments = async (token) => {
-    let config = {
-        headers: {
-            'Authorization': `Bearer, ${token}`,
-        }
-    };
-    return await axios.get(`${root}/appointment/getAll`, config);
-}
 
     //Delete appointments
 
 export const deleteAppointments = async (id, token) => {
-    console.log(token, "1");
+
     let config = {
         headers: {
             'Authorization': `Bearer, ${token}`,
@@ -102,3 +91,28 @@ export const deleteAppointments = async (id, token) => {
     };
     return await axios.delete(`${root}/appointment/delete/${id}`, config)
 }
+
+
+//ADMIN 
+
+    //Get ALL appointments 
+
+    export const allAppointments = async (token) => {
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+            }
+        };
+        return await axios.get(`${root}/appointment/getAll`, config);
+    }
+
+    //Create Dressmaker
+
+    export const createDressmaker = async (body, token) => {
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+            }
+        };
+        return await axios.post(`${root}/admin/createDressmaker`, body, config);
+    }
