@@ -51,6 +51,26 @@ export const UpdateProfile = () => {
 
         const [welcome, setWelcome] = useState("");
 
+    //     const inputValidate = (e) => {
+    //         let error = "";
+    //         let checked = checkInputs(
+    //             e.target.name,
+    //             e.target.value,
+    //             e.target.required
+    //         );
+    //         error = checked.message; 
+    // ​
+    //         setCredencialesValid((prevState) => ({
+    //             ...prevState,
+    //             [e.target.name + "Valid"]: checked.validated,
+    //         }));
+    // ​
+    //         setCredencialesError((prevState) => ({
+    //             ...prevState,
+    //             [e.target.name + "Error"]: error,
+    //         }));
+    //     };
+
     //INPUT HANDLER
 
     const inputHandler = (e) => {
@@ -89,13 +109,13 @@ export const UpdateProfile = () => {
         //UPDATE FUNCTION
 
         const updateUser = () => {
-            userUpdate(credenciales)
+            userUpdate(credenciales, credentialsRdx.credentials.token.token)
                 .then(respuesta => {
                 let nameUser = respuesta.data.name
                 if(nameUser){
                 setWelcome(`${nameUser}, los cambios se han guardado correctamente`);
                 setTimeout(() => {
-                navigate("/login");
+                navigate("/profile");
             }, 3000);
         }
         else{
@@ -105,7 +125,6 @@ export const UpdateProfile = () => {
             }, 3000);
         }
     })
-    
         .catch((error) => console.log(error));
     };
 

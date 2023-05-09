@@ -9,7 +9,9 @@ import { Appointment } from '../Appointment/Appointment';
 import { UpdateProfile } from '../UpdateProfile/UpdateProfile';
 import { GalleryWoman } from '../Gallery/GalleryWoman';
 import { UserAppointment } from '../userAppointment/userAppointment';
+import { AdminAppointments } from '../Admin/AdminAppointments';
 import { GalleryMan } from '../Gallery/GalleryMan';
+
 
 
 export const Body = () => {
@@ -23,6 +25,7 @@ export const Body = () => {
                 <Route path='/users' element={ <Users />}/>
                 <Route path='/appointment' element={ <Appointment />}/>
                 <Route path='/getClient' element={<UserAppointment/>}/>
+                <Route path='/getAll' element={<AdminAppointments/>}/>
                 <Route path='/UpdateProfile' element={<UpdateProfile/>}/>
                 <Route path='/woman' element={<GalleryWoman/>}/>
                 <Route path='/man' element={<GalleryMan/>}/>

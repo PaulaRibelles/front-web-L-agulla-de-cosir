@@ -40,6 +40,7 @@ return (
             <Card>
                 <Card.Body>
                 <Card.Title>{user.name} {user.surname}</Card.Title>
+                <Card.Text>{user.city}</Card.Text>
                 <Card.Text>{user.phone}</Card.Text>
                 <Card.Text>{user.email}</Card.Text>
                 <Nav.Link as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link>

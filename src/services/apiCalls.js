@@ -31,6 +31,9 @@ export const bringUsers = async (token) => {
 
 //PROFILE
 
+
+    //Get profile
+
 export const myProfile = async (token) =>{
 
     let config = {
@@ -41,17 +44,21 @@ export const myProfile = async (token) =>{
     return await axios.get(`${root}/user/profile`, config);
 }
 
-export const userUpdate = async (token) =>{
+    //Update profile
+
+export const userUpdate = async (body,token) =>{
     let config ={
         headers: {
             'Authorization': `Bearer, ${token}`,
         }
     };
-    return await axios.get(`${root}/user/update`, config);
+    return await axios.put(`${root}/user/update`,body,config);
 }
 
 
 //APPOINTMENTS
+
+    //Create appointments
 
 export const myAppointment = async (body, token) => {
     let config = {
@@ -62,6 +69,7 @@ export const myAppointment = async (body, token) => {
     return await axios.post(`${root}/appointment/create`, body, config);
 }
 
+    //Get appointments
 
 export const bringAppointments = async (token) => {
     let config = {
@@ -72,6 +80,7 @@ export const bringAppointments = async (token) => {
     return await axios.get(`${root}/appointment/getClient`, config);
 }
 
+    //Get ALL appointments (as Admin)
 
 export const allAppointments = async (token) => {
     let config = {
@@ -82,12 +91,14 @@ export const allAppointments = async (token) => {
     return await axios.get(`${root}/appointment/getAll`, config);
 }
 
+    //Delete appointments
 
-export const deleteAppointments = async (params, token) => {
+export const deleteAppointments = async (id, token) => {
+    console.log(token, "1");
     let config = {
         headers: {
             'Authorization': `Bearer, ${token}`,
         }
     };
-    return await axios.get(`${root}/appointment/delete/${params}`, config)
+    return await axios.delete(`${root}/appointment/delete/${id}`, config)
 }
