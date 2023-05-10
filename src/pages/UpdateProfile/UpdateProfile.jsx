@@ -122,6 +122,7 @@ export const UpdateProfile = () => {
             setWelcome(`Error: ${respuesta.data}`)
             setTimeout(() => {
                 window.location.reload();
+                navigate("/profile");
             }, 3000);
         }
     })
@@ -151,7 +152,7 @@ export const UpdateProfile = () => {
                     placeholder={"Escribe tu nombre"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
+                    // blurFunction={(e) => inputValidate(e)}
                 />
 
                 {/* INPUT SURNAME */}
@@ -168,7 +169,7 @@ export const UpdateProfile = () => {
                     placeholder={"Escribe tus apellidos"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
+                    // blurFunction={(e) => inputValidate(e)}
                 />
 
                 {/* INPUT CITY */}
@@ -185,7 +186,7 @@ export const UpdateProfile = () => {
                     placeholder={"Escribe tu ciudad"}
                     required={false}
                     changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
+                    // blurFunction={(e) => inputValidate(e)}
                 />
 
                 {/* INPUT PHONE */}
@@ -202,11 +203,11 @@ export const UpdateProfile = () => {
                     placeholder={"+34 000000000"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => inputValidate(e)}
+                    // blurFunction={(e) => inputValidate(e)}
                 />
 
                 <div>{credencialesError.passwordError}</div>
-                <div className={registerAct ? "buttonDes buttonAct" : "buttonDes" }
+                <div className={registerAct ? " buttonAct" : "buttonDes" }
                     onClick={updateUser}>Editar
                 </div>
 

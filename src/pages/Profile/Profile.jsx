@@ -36,7 +36,7 @@ useEffect(() => {
 return (
     <Container fluid>
     <Row>
-        <Col lg={10} className='flex-column align-items-center justify-content-center'>
+        <Col lg={6} className='flex-column align-items-center justify-content-center'>
             <Card>
                 <Card.Body>
                 <Card.Title>{user.name} {user.surname}</Card.Title>

@@ -11,7 +11,8 @@ export const UserAppointment = () => {
     //HOOKS
 
     const credentialsRdx = useSelector(userData);
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]);
+    const [appointments, setAppointments] = useState([]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -31,7 +32,24 @@ export const UserAppointment = () => {
             
     }, [user]);
 
+    useEffect(() => {
+        if (!appointments?.length) {
+            bringAppointments(credentialsRdx.credentials.token.token)
+                .then((result) => {
+                    setAppointments(result.data);
+            })
+                .catch((error) => console.log(error));
+        }
+    }, [appointments]);
 
+
+    //UPDATE FUNCTION 
+
+    const updateYourAppo = (citas) => {
+        dispatch(addChoosen({choosenObject:citas}))
+    }
+
+    
     //DELETE FUNCTION
 
     const deleteAppo = (citas) => {
@@ -50,17 +68,13 @@ export const UserAppointment = () => {
         })
     }
 
-    //UPDATE FUNCTION 
-
-    const updateYourAppo = (citas) => {
-        dispatch(addChoosen({choosenObject:citas}))
-    }
 
     //RENDER
 
     return (
         <Container>
             <Row>
+            {appointments.length > 0 ? (
                 <Col>
                     <h2>Citas pendientes: </h2>
                     {user.map((citas) => {
@@ -78,6 +92,9 @@ export const UserAppointment = () => {
                     })}
                     
                 </Col>
+                ) : (
+                    <div>No hay ninguna cita</div>
+                    )}
             </Row>
         </Container>
     )

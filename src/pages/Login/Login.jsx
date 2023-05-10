@@ -25,8 +25,6 @@ export const Login = () => {
 
     //HOOKS
 
-        //Error Validation
-
         const [credenciales, setCredenciales] = useState({
             email: "",
             password: "",
@@ -41,8 +39,6 @@ export const Login = () => {
             emailValid: false,
             passwordValid: false,
         });
-
-        //Validation
 
     const [welcome, setWelcome] = useState("");
     const [loginAct, setLoginAct] = useState(false);

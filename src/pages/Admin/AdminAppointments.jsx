@@ -34,10 +34,10 @@ export const AdminAppointments = () => {
                     return (
                         <Card key={citas.id}>
                             <Card.Body>
-                            <Card.Title>{citas.Dressmaker.speciality}</Card.Title>
-                            <Card.Text>Modista/o: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname}</Card.Text>
-                            <Card.Text>Fecha: {citas.date}</Card.Text>
+                            <Card.Title>Modista/o: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname}</Card.Title>
                             <Card.Text>Cliente: {citas.Client.User.name} {citas.Client.User.surname}</Card.Text>
+                            <Card.Text>{citas.Dressmaker.speciality}</Card.Text>
+                            <Card.Text>Fecha: {citas.date}</Card.Text>
                             </Card.Body>
                         </Card>
                     )
