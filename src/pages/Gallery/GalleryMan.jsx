@@ -49,7 +49,7 @@ export const GalleryMan = () => {
                     <Card>
                         <Card.Img variant="top" src={traje4M} />
                         <Card.Body>
-                            <Card.Title>Ossorio</Card.Title>
+                            <Card.Title>Mendoza</Card.Title>
 
                         </Card.Body>
                     </Card>{' '}
@@ -57,14 +57,14 @@ export const GalleryMan = () => {
                     <Card>
                         <Card.Img variant="top" src={traje5M} />
                         <Card.Body>
-                            <Card.Title>Molina</Card.Title>     
+                            <Card.Title>Ossorio</Card.Title>     
                         </Card.Body>
                     </Card>{' '}
 
                     <Card>
                         <Card.Img variant="top" src={traje6M} />
                         <Card.Body>
-                            <Card.Title>Mendoza</Card.Title>
+                            <Card.Title>Molina</Card.Title>
                         </Card.Body>
                     </Card>{' '}
                 </CardGroup>

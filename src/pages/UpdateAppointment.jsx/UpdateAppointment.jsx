@@ -1,30 +1,46 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
-import { userData } from '../Slices/userSlice';
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { InputText } from '../../common/InputText/InputText';
-import { myAppointment } from '../../services/apiCalls';
+import { useDispatch, useSelector } from 'react-redux';
+import { userData } from '../Slices/userSlice';
+import { appointmentUpdate } from '../../services/apiCalls';
+import { detailData } from '../Slices/detailSlice';
 
-export const Appointment = () => {
+export const UpdateAppointment = () => {
 
     const navigate = useNavigate();
-    const ReduxCredentials = useSelector(userData);
-    const token = ReduxCredentials.credentials.token.token;
-    let nameUser = ReduxCredentials.credentials.user.email;
+    const appointmentRdx = useSelector(userData);
+    const newAppo = useSelector(detailData)
+    const paramsId = newAppo.choosenObject.id
+    const token = appointmentRdx.credentials.token.token
+    const checkError =(e) =>{ e };
+
+    
+
+    console.log(newAppo);
+
+    console.log(appointmentRdx);
 
     //HOOKS
 
-    const [ dressmakerDate, setDressmakerDate] = useState({
+    const [updateAct, setUpdateAct] = useState(false);
+
+    const [welcome, setWelcome] = useState("");
+
+    const [updateAppointment, setUpdateAppointment] = useState({
         dressmaker_id: "",
         date: "",
     });
 
-    const [dressmakerDateError, setDressmakerDateError] = useState({
+    console.log(updateAppointment);
+
+    const [updateAppointmentError, setUpdateAppointmentError] = useState({
         dressmaker_idError: "",
         dateError: "",
     });
+
+
     const [dressmakers, setDressmakers] = useState([
         {
             id: 1,
@@ -43,44 +59,39 @@ export const Appointment = () => {
             speciality: "Hombre Saraguey"
         }
     ]);
-    const [welcome, setWelcome] = useState("");
-    const checkError =(e) =>{}
 
-    //INPUT HANDLER
+        //INPUT HANDLER
 
-    const inputHandler = (e) => {
-        setDressmakerDate((preveState => ({
-            ...preveState,
-            [e.target.name]: e.target.value,
-            })
-        ));
-    }
+        const inputHandler = (e) => {
+            setUpdateAppointment((preveState => ({
+                ...preveState, 
+                [e.target.name]: e.target.value,})
+                ));
+        };
 
-    //NEW APPOINTMENT FUNCTION
+        //UPDATE APPOINTMENT FUCTION
 
-    const newAppointment = () => {
-        myAppointment(dressmakerDate, token)
-
-            if(nameUser){
-                setWelcome(`Gracias ${nameUser} por confiar en nosotros`);
+        const updateAppo = () => {
+            appointmentUpdate(paramsId, updateAppointment, token )
+            .then((reply)=>{
+                setUpdateAppointment(reply?.data)
+                setWelcome("Los cambios se han registrado correctamente");
                 setTimeout(() => {
-                    navigate('/getClient')
-                }, 2000);
-            }
-            else{
-                setWelcome(`Error: ${respuesta.data}`)
-            }
-
-    };
-
-    //RENDER
+                    navigate("/getClient");
+            },3000)
+        })
+            .catch(error => {console.log(error);
+            })
+        }
+        
+        //RENDER
 
     return (
     <Container fluid>
         <Row>
             <Col>
             <div>
-                <h2>Pide tu cita con nosotros</h2>
+                <h2>Modifica la cita</h2>
             </div>
             <InputText
                 className={"input-D"}
@@ -105,9 +116,8 @@ export const Appointment = () => {
                             })}
                 </select>
             </div>
-            <div>{dressmakerDateError.passwordError}</div>
-            <div className='buttonAct' onClick={() => newAppointment()}>Pedir cita</div>
-            <div>{welcome}</div>
+            <div className='buttonAct' onClick={() => updateAppo()}>Guardar</div>
+            
             </Col>
         </Row>
     </Container>

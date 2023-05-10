@@ -79,6 +79,17 @@ export const bringAppointments = async (token) => {
     return await axios.get(`${root}/appointment/getClient`, config);
 }
 
+    //Update appointments
+
+    export const appointmentUpdate = async (id, body, token) => {
+
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+            }
+        };
+        return await axios.put(`${root}/appointment/update/${id}`, body, config)
+    }
 
     //Delete appointments
 

@@ -17,7 +17,7 @@ export const AdminAppointments = () => {
 
     useEffect(() => {
         if (!appointments?.length) {
-            allAppointments(reduxCredentials.credentials.token)
+            allAppointments(reduxCredentials.credentials.token.token)
                 .then((result) => {
                     setAppointments(result.data);
             })

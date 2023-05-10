@@ -16,7 +16,7 @@ export const detailSlice = createSlice({
     
 });
 
-//exporto las ACCIONES.....
+
 export const { addChoosen } = detailSlice.actions;
 
 export const detailData = (state) => state.detail;

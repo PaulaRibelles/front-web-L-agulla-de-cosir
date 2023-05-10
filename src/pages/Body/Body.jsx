@@ -12,6 +12,7 @@ import { UserAppointment } from '../userAppointment/userAppointment';
 import { AdminAppointments } from '../Admin/AdminAppointments';
 import { GalleryMan } from '../Gallery/GalleryMan';
 import { AdminCreateDressmaker } from '../Admin/AdminCreateDressmaker';
+import { UpdateAppointment } from '../UpdateAppointment.jsx/UpdateAppointment';
 
 
 
@@ -26,6 +27,7 @@ export const Body = () => {
                 <Route path='/users' element={ <Users />}/>
                 <Route path='/appointment' element={ <Appointment />}/>
                 <Route path='/getClient' element={<UserAppointment/>}/>
+                <Route path='/update' element={<UpdateAppointment/>}/>
                 <Route path='/getAll' element={<AdminAppointments/>}/>
                 <Route path='/createDressmaker' element={<AdminCreateDressmaker/>}/>
                 <Route path='/UpdateProfile' element={<UpdateProfile/>}/>

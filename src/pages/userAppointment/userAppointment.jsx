@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userData } from '../Slices/userSlice';
-import { useNavigate } from 'react-router-dom';
-import { bringAppointments, deleteAppointments } from '../../services/apiCalls';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { bringAppointments, deleteAppointments} from '../../services/apiCalls';
+import { Card, Col, Container, Nav, Row } from 'react-bootstrap';
+import { addChoosen } from '../Slices/detailSlice';
+
 export const UserAppointment = () => {
 
     //HOOKS
@@ -11,7 +13,7 @@ export const UserAppointment = () => {
     const credentialsRdx = useSelector(userData);
     const [user, setUser] = useState([])
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
 
     //USE EFFECT
 
@@ -48,6 +50,11 @@ export const UserAppointment = () => {
         })
     }
 
+    //UPDATE FUNCTION 
+
+    const updateYourAppo = (citas) => {
+        dispatch(addChoosen({choosenObject:citas}))
+    }
 
     //RENDER
 
@@ -64,6 +71,7 @@ export const UserAppointment = () => {
                                         <Card.Text>Indumentarista: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname} </Card.Text>
                                         <Card.Text>Fecha: {citas.date} </Card.Text>
                                         <div className='buttonAct' onClick={() => deleteAppo(citas)}>Eliminar</div>
+                                        <Nav.Link as={Link} to={'/update'} onClick={() => updateYourAppo(citas)} >Editar cita</Nav.Link>
                                 </Card.Body>
                             </Card>
                         )
