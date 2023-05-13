@@ -14,6 +14,7 @@ import { GalleryMan } from '../Gallery/GalleryMan';
 import { AdminCreateDressmaker } from '../Admin/AdminCreateDressmaker';
 import { UpdateAppointment } from '../UpdateAppointment.jsx/UpdateAppointment';
 import { AdminGetDressmaker } from '../Admin/AdminGetDressmaker';
+import { AdminUpdateDressmaker } from '../Admin/AdminUpdateDressmaker';
 
 
 
@@ -39,6 +40,7 @@ export const Body = () => {
                 <Route path='/getAll' element={<AdminAppointments/>}/>
                 <Route path='/createDressmaker' element={<AdminCreateDressmaker/>}/>
                 <Route path='/getDressmaker' element={<AdminGetDressmaker/>}/>
+                <Route path='/updateDressmaker' element={<AdminUpdateDressmaker/>}/>
                 
             </Routes>
         </>

@@ -45,7 +45,7 @@ export const AdminCreateDressmaker = () => {
                     setWelcome(`Se ha creado correctamente`);
                     setTimeout(() => {
                         navigate('/')
-                    }, 2000);
+                    }, 3000);
                 }
                 else{
                     setWelcome(`Error: ${respuesta.data}`)

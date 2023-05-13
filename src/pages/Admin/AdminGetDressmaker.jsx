@@ -4,6 +4,7 @@ import { userData } from '../Slices/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { getDress } from '../../services/apiCalls';
 import { Card, Col, Container, Nav, Row } from 'react-bootstrap';
+import { addChoosen } from '../Slices/detailSlice';
 
 
 export const AdminGetDressmaker = () => {
@@ -41,6 +42,12 @@ export const AdminGetDressmaker = () => {
     }
 }, [dressmakers]);
 
+    //UPDATE FUNCTION 
+
+    const updateDressmaker = (indumentaristas) => {
+        dispatch(addChoosen({choosenObject:indumentaristas}))
+    }
+
     //RENDER
 
 return (
@@ -57,7 +64,7 @@ return (
                             <Card.Text>Tipo de traje: {indumentaristas.speciality} </Card.Text>
                             <Card.Text>imagen del traje: {indumentaristas.image_url} </Card.Text>
                             <Card.Text>User ID: {indumentaristas.user_id} </Card.Text>
-                            <Nav.Link as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link>
+                            <Nav.Link as={Link} to={'/updateDressmaker'} onClick={() => updateDressmaker(indumentaristas)} >Editar indumentarista</Nav.Link>
                     </Card.Body>
                     </Card>
                     )

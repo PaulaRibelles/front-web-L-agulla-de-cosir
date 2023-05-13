@@ -16,12 +16,6 @@ export const UpdateAppointment = () => {
     const token = appointmentRdx.credentials.token.token
     const checkError =(e) =>{ e };
 
-    
-
-    console.log(newAppo);
-
-    console.log(appointmentRdx);
-
     //HOOKS
 
     const [updateAct, setUpdateAct] = useState(false);
@@ -32,8 +26,6 @@ export const UpdateAppointment = () => {
         dressmaker_id: "",
         date: "",
     });
-
-    console.log(updateAppointment);
 
     const [updateAppointmentError, setUpdateAppointmentError] = useState({
         dressmaker_idError: "",
