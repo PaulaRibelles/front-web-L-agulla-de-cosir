@@ -13,6 +13,7 @@ import { AdminAppointments } from '../Admin/AdminAppointments';
 import { GalleryMan } from '../Gallery/GalleryMan';
 import { AdminCreateDressmaker } from '../Admin/AdminCreateDressmaker';
 import { UpdateAppointment } from '../UpdateAppointment.jsx/UpdateAppointment';
+import { AdminGetDressmaker } from '../Admin/AdminGetDressmaker';
 
 
 
@@ -20,19 +21,25 @@ export const Body = () => {
     return (
         <>
             <Routes>
+                {/* HOME */}
                 <Route path='/' element={<Home />}/>
+                <Route path='/woman' element={<GalleryWoman/>}/>
+                <Route path='/man' element={<GalleryMan/>}/>
+                {/* AUTH */}
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={ <Register />}/>
+                {/* USER */}
                 <Route path='/profile' element={ <Profile />}/>
                 <Route path='/users' element={ <Users />}/>
                 <Route path='/appointment' element={ <Appointment />}/>
                 <Route path='/getClient' element={<UserAppointment/>}/>
                 <Route path='/update' element={<UpdateAppointment/>}/>
+                <Route path='/UpdateProfile' element={<UpdateProfile/>}/>
+                {/* ADMIN */}
                 <Route path='/getAll' element={<AdminAppointments/>}/>
                 <Route path='/createDressmaker' element={<AdminCreateDressmaker/>}/>
-                <Route path='/UpdateProfile' element={<UpdateProfile/>}/>
-                <Route path='/woman' element={<GalleryWoman/>}/>
-                <Route path='/man' element={<GalleryMan/>}/>
+                <Route path='/getDressmaker' element={<AdminGetDressmaker/>}/>
+                
             </Routes>
         </>
     )

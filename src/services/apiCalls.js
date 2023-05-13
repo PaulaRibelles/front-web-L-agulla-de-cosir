@@ -127,3 +127,14 @@ export const deleteAppointments = async (id, token) => {
         };
         return await axios.post(`${root}/admin/createDressmaker`, body, config);
     }
+
+    //Get Dressmaker profile
+
+    export const getDress = async (token) => {
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+            }
+        };
+        return await axios.get(`${root}/admin/getDressmaker`, config);
+    }

@@ -22,7 +22,6 @@ export const UserAppointment = () => {
         if(!user.length){
             bringAppointments(credentialsRdx.credentials.token.token)
             .then((respuesta) => {
-
             setUser(respuesta.data)
             }).catch((error) => console.log(error));
         }

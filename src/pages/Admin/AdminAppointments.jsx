@@ -36,7 +36,7 @@ export const AdminAppointments = () => {
                             <Card.Body>
                             <Card.Title>Modista/o: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname}</Card.Title>
                             <Card.Text>Cliente: {citas.Client.User.name} {citas.Client.User.surname}</Card.Text>
-                            <Card.Text>{citas.Dressmaker.speciality}</Card.Text>
+                            <Card.Text>Tipo Traje: {citas.Dressmaker.speciality}</Card.Text>
                             <Card.Text>Fecha: {citas.date}</Card.Text>
                             </Card.Body>
                         </Card>

@@ -36,14 +36,15 @@ export const BarraNav = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="me-auto">
-                </Nav>
+                {/* <Nav className="me-auto">
+                </Nav> */}
                 <Nav>
                     {credencialesRdx?.credentials?.user?.roleId === 1 ? (
                     <>
                         <Nav.Link as={Link} to={'/profile'}>Profile</Nav.Link>
                         <Nav.Link as={Link} to={'/getAll'}>Todas las citas</Nav.Link>
                         <Nav.Link as={Link} to={'/createDressmaker'}>Crear indumentarista</Nav.Link>
+                        <Nav.Link as={Link} to={'/getDressmaker'}>Ver indumentaristas</Nav.Link>
                         <Nav.Link as={Link} to={'/'} onClick={()=>logmeOut()}>Cerrar sesión</Nav.Link>
                     </>
                     ) : credencialesRdx?.credentials?.user?.roleId === 2 ? (
