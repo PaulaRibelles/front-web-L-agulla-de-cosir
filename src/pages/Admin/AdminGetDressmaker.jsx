@@ -15,8 +15,6 @@ export const AdminGetDressmaker = () => {
     const [dressmakers, setDressmakers] = useState([]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
-console.log(dressmakers);
 
     //USE EFFECT
 
@@ -57,7 +55,9 @@ return (
                             <Card.Body>
                             <Card.Title>{indumentaristas.User.name} {indumentaristas.User.surname}</Card.Title>
                             <Card.Text>Tipo de traje: {indumentaristas.speciality} </Card.Text>
-                            {/* <Nav.Link as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link> */}
+                            <Card.Text>imagen del traje: {indumentaristas.image_url} </Card.Text>
+                            <Card.Text>User ID: {indumentaristas.user_id} </Card.Text>
+                            <Nav.Link as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link>
                     </Card.Body>
                     </Card>
                     )
