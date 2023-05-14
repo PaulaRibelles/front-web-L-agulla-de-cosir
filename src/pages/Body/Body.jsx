@@ -15,6 +15,7 @@ import { AdminCreateDressmaker } from '../Admin/AdminCreateDressmaker';
 import { UpdateAppointment } from '../UpdateAppointment.jsx/UpdateAppointment';
 import { AdminGetDressmaker } from '../Admin/AdminGetDressmaker';
 import { AdminUpdateDressmaker } from '../Admin/AdminUpdateDressmaker';
+import { AdminGetAllUsers } from '../Admin/AdminGetAllUsers';
 
 
 
@@ -38,8 +39,9 @@ export const Body = () => {
                 <Route path='/UpdateProfile' element={<UpdateProfile/>}/>
                 {/* ADMIN */}
                 <Route path='/getAll' element={<AdminAppointments/>}/>
-                <Route path='/createDressmaker' element={<AdminCreateDressmaker/>}/>
                 <Route path='/getDressmaker' element={<AdminGetDressmaker/>}/>
+                <Route path='/allUsers' element={<AdminGetAllUsers/>}/>
+                <Route path='/createDressmaker' element={<AdminCreateDressmaker/>}/>
                 <Route path='/updateDressmaker' element={<AdminUpdateDressmaker/>}/>
                 
             </Routes>

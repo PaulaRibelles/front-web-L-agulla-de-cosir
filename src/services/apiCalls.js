@@ -117,15 +117,15 @@ export const deleteAppointments = async (id, token) => {
         return await axios.get(`${root}/appointment/getAll`, config);
     }
 
-    //Create Dressmaker
+    //Get all Users
 
-    export const createDressmaker = async (body, token) => {
+    export const allUsers = async (token) => {
         let config = {
             headers: {
                 'Authorization': `Bearer, ${token}`,
             }
         };
-        return await axios.post(`${root}/admin/createDressmaker`, body, config);
+        return await axios.get(`${root}/user/allUsers`, config);
     }
 
     //Get Dressmaker profile
@@ -139,6 +139,17 @@ export const deleteAppointments = async (id, token) => {
         return await axios.get(`${root}/admin/getDressmaker`, config);
     }
 
+    //Create Dressmaker
+
+    export const createDressmaker = async (body, token) => {
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+                }
+            };
+        return await axios.post(`${root}/admin/createDressmaker`, body, config);
+        }
+
     //Update Dressmaker
 
     export const dressmakerUpdate = async (id, body, token) => {
@@ -148,4 +159,15 @@ export const deleteAppointments = async (id, token) => {
             }
         };
         return await axios.put(`${root}/admin/updateDressmaker/${id}`, body, config);
+    }
+
+    //Delete Dressmaker
+
+    export const dressmakerDelete = async (id, body, token) => {
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+            }
+        };
+        return await axios.delete(`${root}/admin/deleteDressmaker/${id}`, body, config);
     }
