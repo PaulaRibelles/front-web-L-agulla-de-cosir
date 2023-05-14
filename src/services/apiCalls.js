@@ -163,11 +163,11 @@ export const deleteAppointments = async (id, token) => {
 
     //Delete Dressmaker
 
-    export const dressmakerDelete = async (id, body, token) => {
+    export const dressmakerDelete = async (id, token) => {
         let config = {
             headers: {
                 'Authorization': `Bearer, ${token}`,
             }
         };
-        return await axios.delete(`${root}/admin/deleteDressmaker/${id}`, body, config);
+        return await axios.delete(`${root}/admin/deleteDressmaker/${id}`, config);
     }

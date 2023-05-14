@@ -49,13 +49,17 @@ export const AdminGetDressmaker = () => {
         dispatch(addChoosen({choosenObject:indumentaristas}))
     }
 
-        //DELETE FUNCTION
+    //DELETE FUNCTION
 
         const deleteDress = (indumentaristas) => {
             dressmakerDelete(indumentaristas.id, token)
             .then(
                 () => {
                     setTimeout(() => {
+                        getDress(token)
+                        .then((respuesta) => {
+                        setUsers(respuesta.data)
+                        })
                         getDress(token)
                         .then((respuesta) => {
                         setDressmakers(respuesta.data)
@@ -77,7 +81,7 @@ return (
                 <h2>Indumentaristas de la tienda</h2>
                 {user.map((indumentaristas) => {
                     return(
-                        <Card key={dressmakers.id}>
+                        <Card key={indumentaristas.id}>
                             <Card.Body>
                             <Card.Title>{indumentaristas.User.name} {indumentaristas.User.surname}</Card.Title>
                             <Card.Text>Tipo de traje: {indumentaristas.speciality} </Card.Text>

@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { userData } from '../Slices/userSlice';
 import { myProfile } from '../../services/apiCalls';
-import { Button, Card, Col, Container, Nav, Row } from 'react-bootstrap';
+import { Card, Col, Container, Nav, Row } from 'react-bootstrap';
+import userIcon from '../../img/user.png';
+import './Profile.css'
 
 
 export const Profile = () => {
@@ -35,9 +37,10 @@ useEffect(() => {
 
 return (
     <Container fluid>
-    <Row>
+    <Row className='rowDesign'>
         <Col lg={6} className='flex-column align-items-center justify-content-center'>
-            <Card>
+            <Card className='cardDesign'>
+                <Card.Img className='iconUser' variant="top" src={userIcon} />
                 <Card.Body>
                 <Card.Title>{user.name} {user.surname}</Card.Title>
                 <Card.Text>{user.city}</Card.Text>
