@@ -171,3 +171,13 @@ export const deleteAppointments = async (id, token) => {
         };
         return await axios.delete(`${root}/admin/deleteDressmaker/${id}`, config);
     }
+
+    //Delete Users 
+    export const allUsersDelete = async (id, token) => {
+        let config = {
+            headers: {
+                'Authorization': `Bearer, ${token}`,
+            }
+        };
+        return await axios.delete(`${root}/user/delete/${id}`, config);
+    }

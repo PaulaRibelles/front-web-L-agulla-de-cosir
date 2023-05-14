@@ -20,7 +20,7 @@ export const Profile = () => {
 
     //USE EFFECT
 
-useEffect(() => {
+    useEffect(() => {
 
     if(!user?.name){
         myProfile(credentialsRdx.credentials.token.token)

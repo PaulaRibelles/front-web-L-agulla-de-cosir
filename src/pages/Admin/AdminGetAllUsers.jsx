@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { userData } from '../Slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { allUsers } from '../../services/apiCalls';
+import { allUsers, allUsersDelete } from '../../services/apiCalls';
 
 export const AdminGetAllUsers = () => {
 
@@ -13,6 +13,8 @@ export const AdminGetAllUsers = () => {
     const [users, setUsers] = useState([])
     const navigate = useNavigate();
     const token = credentialsRdx.credentials.token.token;
+
+    const [welcome, setWelcome] = useState("")
 
     //USE EFFECT
 
@@ -29,6 +31,28 @@ export const AdminGetAllUsers = () => {
             }
         }, [users]);
 
+    //DELETE FUNCTION
+
+        const deleteUser = (usersAll) => {
+            allUsersDelete(usersAll.id, token)
+            .then(
+                () => {
+                    setTimeout(() => {
+                        allUsers(token)
+                        .then((respuesta) => {
+                        setUsers(respuesta.data)
+                        })
+                    },3000);
+                }
+            )
+            .catch((error) => {
+                setWelcome(`No se pueden borrar usuarios con citas`);
+                setTimeout(() => {
+                setWelcome(``);
+                }, 3000);
+            })
+        };
+
     //RENDER
 
     return (
@@ -37,14 +61,16 @@ export const AdminGetAllUsers = () => {
             {users.length > 0 ? (
                 <Col lg={6} className='flex-column align-items-center justify-content-center'>
                 <h2>Todos los usuarios</h2>
-                {users.map(() => {
+                {users.map((getUsers) => {
                     return (    
-                        <Card key={users.id}>
+                        <Card key={getUsers.id}>
                             <Card.Body>
-                                <Card.Title>{users.name} {users.surname}</Card.Title>
-                                <Card.Text>{users.city}</Card.Text>
-                                <Card.Text>{users.phone}</Card.Text>
-                                <Card.Text>{users.email}</Card.Text>
+                                <Card.Title>{getUsers.name} {getUsers.surname}</Card.Title>
+                                <Card.Text>{getUsers.city}</Card.Text>
+                                <Card.Text>{getUsers.phone}</Card.Text>
+                                <Card.Text>{getUsers.email}</Card.Text>
+                                <div className='buttonAct' onClick={() => deleteUser(getUsers)}>Eliminar</div>
+                                <div>{welcome}</div>
                             </Card.Body>
                         </Card>
                         )
