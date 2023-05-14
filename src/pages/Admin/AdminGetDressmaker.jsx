@@ -75,20 +75,20 @@ export const AdminGetDressmaker = () => {
 
 return (
     <Container fluid>
-        <Row>
+        <Row className='rowDesign'>
         {dressmakers.length > 0 ? (
             <Col lg={5} className='flex-column align-items-center justify-content-center'>
                 <h2>Indumentaristas de la tienda</h2>
                 {user.map((indumentaristas) => {
                     return(
-                        <Card key={indumentaristas.id}>
+                        <Card className='cardDesign' key={indumentaristas.id}>
                             <Card.Body>
+                            <Card.Img className='imagenDesign' variant="top" src={indumentaristas.image_url} />
                             <Card.Title>{indumentaristas.User.name} {indumentaristas.User.surname}</Card.Title>
                             <Card.Text>Tipo de traje: {indumentaristas.speciality} </Card.Text>
-                            <Card.Text>imagen del traje: {indumentaristas.image_url} </Card.Text>
                             <Card.Text>User ID: {indumentaristas.user_id} </Card.Text>
                             <div className='buttonAct' onClick={() => deleteDress(indumentaristas)}>Eliminar</div>
-                            <Nav.Link as={Link} to={'/updateDressmaker'} onClick={() => updateDressmaker(indumentaristas)} >Editar indumentarista</Nav.Link>
+                            <Nav.Link className='editar' as={Link} to={'/updateDressmaker'} onClick={() => updateDressmaker(indumentaristas)} >Editar indumentarista</Nav.Link>
                     </Card.Body>
                     </Card>
                     )

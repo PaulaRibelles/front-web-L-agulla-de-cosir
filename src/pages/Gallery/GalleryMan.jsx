@@ -16,7 +16,7 @@ export const GalleryMan = () => {
     <Container>
         <Col>
             <Row>
-            <h2>Hombre Saraguey</h2>
+            <h2 className='titolDesign'>Hombre Saraguey</h2>
                 <CardGroup>
                     <Card>
                         <Card.Img variant="top" src={traje1M} />
@@ -43,7 +43,7 @@ export const GalleryMan = () => {
                     </Card>{' '}
                 </CardGroup>
 
-                <h2>Hombre Torrentí</h2>
+                <h2 className='titolDesign'>Hombre Torrentí</h2>
 
                 <CardGroup>
                     <Card>

@@ -15,10 +15,10 @@ export const GalleryWoman = () => {
 
     <Container>
         <Col>
-            <Row>
-            <h2>Mujer siglo XVIII</h2>
+            <Row className='rowDesign'>
+            <h2 className='titolDesign'>Mujer siglo XVIII</h2>
                 <CardGroup>
-                    <Card>
+                    <Card >
                         <Card.Img variant="top" src={traje1} />
                         <Card.Body>
                             <Card.Title>Brocatel</Card.Title>
@@ -52,7 +52,7 @@ export const GalleryWoman = () => {
                     </Card>{' '}
                 </CardGroup>
 
-                <h2>Mujer siglo XIX</h2>
+                <h2 className='titolDesign'>Mujer siglo XIX</h2>
 
                 <CardGroup>
                     <Card>

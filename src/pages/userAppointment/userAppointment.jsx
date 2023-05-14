@@ -72,19 +72,19 @@ export const UserAppointment = () => {
 
     return (
         <Container>
-            <Row>
+            <Row className='rowDesign'>
             {appointments.length > 0 ? (
                 <Col>
-                    <h2>Citas pendientes: </h2>
+                    <h2 className='titolDesign'>Citas pendientes: </h2>
                     {user.map((citas) => {
                         return (
-                            <Card key={citas.id}>
+                            <Card className='cardDesign' key={citas.id}>
                                 <Card.Body>
                                     <Card.Title>Tipo de traje: {citas.Dressmaker.speciality}</Card.Title>
                                         <Card.Text>Indumentarista: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname} </Card.Text>
                                         <Card.Text>Fecha: {citas.date} </Card.Text>
                                         <div className='buttonAct' onClick={() => deleteAppo(citas)}>Eliminar</div>
-                                        <Nav.Link as={Link} to={'/update'} onClick={() => updateYourAppo(citas)} >Editar cita</Nav.Link>
+                                        <Nav.Link className='editar' as={Link} to={'/update'} onClick={() => updateYourAppo(citas)} >Editar cita</Nav.Link>
                                 </Card.Body>
                             </Card>
                         )

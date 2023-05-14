@@ -54,14 +54,15 @@ export const AdminUpdateDressmaker = () => {
     //RENDER
 
     return (
-        <Container fluid>
-        <Row>
+        <Container fluid className='containerDesign'>
+        <Row className='rowDesign'>
             <Col>
             <div>
-                <h2>Modifica la indumentarista</h2>
+                <h2 className='titolDesign'>Modifica la indumentarista</h2>
             </div>
+            <div className='divDesign' >
                     <InputText
-                        className={"input-D"}
+                        className={"inputDesign input-D"}
                         type={"text"}
                         name={"speciality"}
                         placeholder={"Speciality"}
@@ -70,7 +71,7 @@ export const AdminUpdateDressmaker = () => {
                         blurFunction={(e)=> checkError(e)}
                     />
                     <InputText
-                        className={"input-D"}
+                        className={"inputDesign input-D"}
                         type={"text"}
                         name={"image_url"}
                         placeholder={"image_url"}
@@ -79,7 +80,7 @@ export const AdminUpdateDressmaker = () => {
                         blurFunction={(e)=> checkError(e)}
                     />
                     <InputText
-                        className={"input-D"}
+                        className={"inputDesign input-D"}
                         type={"text"}
                         name={"user_id"}
                         placeholder={"user_id"}
@@ -87,6 +88,7 @@ export const AdminUpdateDressmaker = () => {
                         changeFunction={(e)=>inputHandler(e)}
                         blurFunction={(e)=> checkError(e)}
                     />
+                    </div>
             <div className='buttonAct' onClick={() => updateDress()}>Guardar</div>
             <div>{welcome}</div>
             </Col>

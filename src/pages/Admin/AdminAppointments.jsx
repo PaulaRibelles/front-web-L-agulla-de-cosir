@@ -27,12 +27,13 @@ export const AdminAppointments = () => {
 
     return (
     <Container>
-        <Row>
+        <Row className='rowDesign'>
             {appointments.length > 0 ? (
-                <Col>
+                <Col lg={6}>
+                    <h2>Todas las citas existentes</h2>
                 {appointments.map((citas) => {
                     return (
-                        <Card key={citas.id}>
+                        <Card className='cardDesign' key={citas.id}>
                             <Card.Body>
                             <Card.Title>Modista/o: {citas.Dressmaker.User.name} {citas.Dressmaker.User.surname}</Card.Title>
                             <Card.Text>Cliente: {citas.Client.User.name} {citas.Client.User.surname}</Card.Text>

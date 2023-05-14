@@ -57,13 +57,13 @@ export const AdminGetAllUsers = () => {
 
     return (
         <Container fluid>
-            <Row>
+            <Row className='rowDesign'>
             {users.length > 0 ? (
                 <Col lg={6} className='flex-column align-items-center justify-content-center'>
                 <h2>Todos los usuarios</h2>
                 {users.map((getUsers) => {
                     return (    
-                        <Card key={getUsers.id}>
+                        <Card className='cardDesign' key={getUsers.id}>
                             <Card.Body>
                                 <Card.Title>{getUsers.name} {getUsers.surname}</Card.Title>
                                 <Card.Text>{getUsers.city}</Card.Text>

@@ -53,14 +53,15 @@ export const AdminCreateDressmaker = () => {
         };
 
     return (
-        <Container fluid>
-            <Row>
+        <Container fluid className='containerDesign'>
+            <Row className='rowDesign'>
                 <Col>
                     <div>
-                        <h2>Crea nueva/o indumentarista</h2>
+                        <h2 className='titolDesign'>Crea nueva/o indumentarista</h2>
                     </div>
+                    <div className='divDesign' >
                     <InputText
-                        className={"input-D"}
+                        className={"inputDesign input-D"}
                         type={"text"}
                         name={"speciality"}
                         placeholder={"Speciality"}
@@ -69,7 +70,7 @@ export const AdminCreateDressmaker = () => {
                         blurFunction={(e)=> checkError(e)}
                     />
                     <InputText
-                        className={"input-D"}
+                        className={"inputDesign input-D"}
                         type={"text"}
                         name={"image_url"}
                         placeholder={"image_url"}
@@ -78,7 +79,7 @@ export const AdminCreateDressmaker = () => {
                         blurFunction={(e)=> checkError(e)}
                     />
                         <InputText
-                        className={"input-D"}
+                        className={"inputDesign input-D"}
                         type={"text"}
                         name={"user_id"}
                         placeholder={"user_id"}
@@ -86,7 +87,8 @@ export const AdminCreateDressmaker = () => {
                         changeFunction={(e)=>inputHandler(e)}
                         blurFunction={(e)=> checkError(e)}
                     />
-                    <div className='buttonAct' onClick={() => dressmakerNew()}>Crear</div>
+                    </div>
+                    <div className='buttonAct buttonD' onClick={() => dressmakerNew()}>Crear</div>
                     <div>{welcome}</div>
                 </Col>
             </Row>

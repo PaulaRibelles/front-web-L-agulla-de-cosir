@@ -46,7 +46,7 @@ return (
                 <Card.Text>{user.city}</Card.Text>
                 <Card.Text>{user.phone}</Card.Text>
                 <Card.Text>{user.email}</Card.Text>
-                <Nav.Link as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link>
+                <Nav.Link className='editar' as={Link} to={'/UpdateProfile'}>Editar perfil</Nav.Link>
                 </Card.Body>
             </Card>
         </Col>

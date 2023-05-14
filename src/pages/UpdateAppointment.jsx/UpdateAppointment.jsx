@@ -80,13 +80,13 @@ export const UpdateAppointment = () => {
 
     return (
     <Container fluid>
-        <Row>
+        <Row className='rowDesign'>
             <Col>
             <div>
-                <h2>Modifica la cita</h2>
+                <h2 className='titolDesign'>Modifica la cita</h2>
             </div>
             <InputText
-                className={"input-D"}
+                className={"inputDesign"}
                 type={"datetime-local"}
                 name={"date"}
                 placeholder={"Seleccionar fecha"}
@@ -96,7 +96,7 @@ export const UpdateAppointment = () => {
                 />
             <div>
                 <select 
-                className="dropdown input-D" 
+                className="dropdown inputDesign" 
                 name={"dressmaker_id"} 
                 onChange={(e) => inputHandler(e) }
                 >
@@ -108,7 +108,7 @@ export const UpdateAppointment = () => {
                             })}
                 </select>
             </div>
-            <div className='buttonAct' onClick={() => updateAppo()}>Guardar</div>
+            <div className='buttonAct buttonD' onClick={() => updateAppo()}>Guardar</div>
             
             </Col>
         </Row>
