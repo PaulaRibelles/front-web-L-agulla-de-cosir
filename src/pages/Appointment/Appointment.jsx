@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { userData } from '../Slices/userSlice';
 import { Col, Container, Row } from 'react-bootstrap';
 import { InputText } from '../../common/InputText/InputText';
-import { myAppointment } from '../../services/apiCalls';
+import { getDress, myAppointment } from '../../services/apiCalls';
 
 export const Appointment = () => {
 
@@ -25,24 +25,9 @@ export const Appointment = () => {
         dressmaker_idError: "",
         dateError: "",
     });
-    const [dressmakers, setDressmakers] = useState([
-        {
-            id: 1,
-            speciality: "Mujer S.XVIII"
-        },
-        {
-            id: 2,
-            speciality: "Mujer S.XIX"
-        },
-        {
-            id:3,
-            speciality: "Hombre Torrentí"
-        },
-        {
-            id:4,
-            speciality: "Hombre Saraguey"
-        }
-    ]);
+
+    const [dressmakers, setDressmakers] = useState([]);
+    const [user, setUsers] = useState([])
     const [welcome, setWelcome] = useState("");
     const checkError =(e) =>{}
 
@@ -55,6 +40,30 @@ export const Appointment = () => {
             })
         ));
     }
+
+    //USE EFFECT
+
+    useEffect(() => {
+        if(!user?.length){
+            getDress(token)
+            .then((respuesta) => {
+                setUsers(respuesta.data)
+            })
+        }
+        if (!token) {
+        navigate("/");
+        }
+    }, [user]);
+    
+    useEffect(() => {
+        if (!dressmakers?.length) {
+            getDress(token)
+                .then((result) => {
+                    setDressmakers(result.data);
+            })
+                .catch((error) => console.log(error));
+        }
+    }, [dressmakers]);
 
     //NEW APPOINTMENT FUNCTION
 
@@ -92,15 +101,16 @@ export const Appointment = () => {
                 blurFunction={(e)=> checkError(e)}
                 />
             <div>
+                
                 <select 
                 className="dropdown inputDesign" 
                 name={"dressmaker_id"} 
                 onChange={(e) => inputHandler(e) }
                 >
                     <option value="">Selecciona tu tipo de traje</option>
-                        {dressmakers.map((dressmaker) => {
+                        {dressmakers.map((indumentaristas) => {
                             return (
-                                <option key={dressmaker.id} value={dressmaker.id}>{dressmaker.speciality}</option>
+                                <option key={indumentaristas.id} value={indumentaristas.id}>{indumentaristas.speciality}</option>
                             )
                             })}
                 </select>

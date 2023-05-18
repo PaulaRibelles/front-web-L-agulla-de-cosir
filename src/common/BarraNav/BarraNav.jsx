@@ -36,8 +36,8 @@ export const BarraNav = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                {/* <Nav className="me-auto">
-                </Nav> */}
+                <Nav className="me-auto">
+                </Nav>
                 <Nav>
                     {credencialesRdx?.credentials?.user?.roleId === 1 ? (
                     <>
