@@ -21,6 +21,27 @@ Este proyecto se conecta a una <a href="https://github.com/PaulaRibelles/back-we
 ## Sobre el proyecto 🔎
 El proyecto consiste en crear una página web de una tienda especializada en indumentaria fallera, tanto femenina como masculina.
 Lo que se pretende con este proyecto es que los clientes tengan la facilidad y comodidad de reservar cita con las y los indumentaristas en el momento que desee, sin tener que esperar a llamar por teléfono en horario comercial. 
+
+### Funcionalidades disponibles como Usuario
+
+  <ul>
+    <li type="disc"> Ver trajes de mujer y de hombre</li>
+    <li type="disc"> Registrarse como nuevo usuario</li>
+    <li type="disc"> Hacer Login</li>
+    <li type="disc"> Crear una cita con los distintos indumentaristas</li>
+    <li type="disc"> Ver, modificar y eliminar las citas existentes</li>
+    <li type="disc"> Ver y modificar su propio perfil de usuario</li>
+  </ul>
+  
+  ### Funcionalidades disponibles como Admin
+
+  <ul>
+    <li type="disc"> Ver todos los usuarios disponibles</li>
+    <li type="disc"> Ver todas las citas de los usuarios</li>
+    <li type="disc"> Eliminar usuarios que no tengan citas registradas</li>
+    <li type="disc"> Crear perfiles de nuevas indumentaristas</li>
+    <li type="disc"> Ver, modificar y eliminar indumentaristas existentes</li>
+  </ul>
   
 
 ## Stack :paperclip:
@@ -46,8 +67,7 @@ Tecnologías utilizadas:
 <img src="./src/img/home-mvl.png">
 
 ## Futuras funcionalidades :pencil:
-<p>Actualizar y/o eliminar perfil </p>
-<p>Admin poder crear, modificar y eliminar costureras </p>
+<p>Añadir funcionalidad de compra </p>
 
 ## Contribuciones :mailbox:
 Las sugerencias y aportaciones son siempre bienvenidas.  
